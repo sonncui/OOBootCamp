@@ -67,7 +67,7 @@ namespace lockers.test
             List<Locker> lockers = new List<Locker>();
             lockers.Add(locker);
             NormalRobot normalRobot = new NormalRobot(lockers);
-            Ticket ticket = normalRobot.Store(bag, new LockerFindHighVacancyStrategy());
+            Ticket ticket = normalRobot.store(bag);
             Assert.Same(bag,lockers[0].pick(ticket));   
         }
 
@@ -76,7 +76,7 @@ namespace lockers.test
         {
             List<Locker> lockers = new List<Locker>(){locker,new Locker()};
             Robot normalRobot = new NormalRobot(lockers);
-            Ticket ticket = normalRobot.Store(bag, new LockerFindHighVacancyStrategy());
+            Ticket ticket = normalRobot.store(bag);
             Assert.Same(bag, lockers[0].pick(ticket));
         }
 
@@ -92,7 +92,7 @@ namespace lockers.test
             NormalRobot normalRobot = new NormalRobot(lockers);
 
             Bag expectBag = new Bag();
-            Ticket ticket = normalRobot.Store(expectBag, new LockerFindHighVacancyStrategy());
+            Ticket ticket = normalRobot.store(expectBag);
             Assert.Same(expectBag,secondLocker.pick(ticket));
         }
 
@@ -102,11 +102,11 @@ namespace lockers.test
             Locker firstLocker = new Locker();
             List<Locker> lockers = new List<Locker>() { firstLocker };
             NormalRobot normalRobot = new NormalRobot(lockers);
-            Ticket ticketForPick = normalRobot.Store(bag, new LockerFindHighVacancyStrategy());
+            Ticket ticketForPick = normalRobot.store(bag);
             firstLocker.pick(ticketForPick);
 
             Bag bagStore = new Bag();
-            Ticket storeTicket = normalRobot.Store(bagStore, new LockerFindHighVacancyStrategy());
+            Ticket storeTicket = normalRobot.store(bagStore);
             Assert.Same(bagStore,normalRobot.pick(storeTicket));
         }
 
@@ -118,7 +118,7 @@ namespace lockers.test
             NormalRobot normalRobot = new NormalRobot(lockers);
 
             Bag expectBag = new Bag();
-            Ticket ticket = normalRobot.Store(expectBag, new LockerFindHighVacancyStrategy());
+            Ticket ticket = normalRobot.store(expectBag);
             Assert.Same(expectBag,normalRobot.pick(ticket));
         }
 
@@ -127,10 +127,10 @@ namespace lockers.test
         {
             List<Locker> lockers = new List<Locker>() { new Locker(1), new Locker()};
             NormalRobot normalRobot = new NormalRobot(lockers);
-            normalRobot.Store(new Bag(), new LockerFindHighVacancyStrategy());
+            normalRobot.store(new Bag());
 
             Bag expectBag = new Bag();
-            Ticket ticket = normalRobot.Store(expectBag, new LockerFindHighVacancyStrategy());
+            Ticket ticket = normalRobot.store(expectBag);
             Assert.Same(expectBag, normalRobot.pick(ticket));
         }
 
@@ -139,11 +139,11 @@ namespace lockers.test
         {
             List<Locker> lockers = new List<Locker>() {new Locker(1), new Locker()};
             NormalRobot normalRobot = new NormalRobot(lockers);
-            var storedTicket = normalRobot.Store(new Bag(), new LockerFindHighVacancyStrategy());
+            var storedTicket = normalRobot.store(new Bag());
             normalRobot.pick(storedTicket);
 
             Bag expectBag = new Bag();
-            Ticket ticket = normalRobot.Store(expectBag, new LockerFindHighVacancyStrategy());
+            Ticket ticket = normalRobot.store(expectBag);
             Assert.Same(expectBag, normalRobot.pick(ticket));
         }
 
@@ -155,7 +155,7 @@ namespace lockers.test
             List<Locker> lockers = new List<Locker>() { locker };
             NormalRobot normalRobot = new NormalRobot(lockers);
 
-            Ticket ticket = normalRobot.Store(new Bag(), new LockerFindHighVacancyStrategy());
+            Ticket ticket = normalRobot.store(new Bag());
             normalRobot.pick(ticket);
             Assert.Null(normalRobot.pick(ticket));
         }

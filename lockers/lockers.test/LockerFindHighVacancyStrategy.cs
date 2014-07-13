@@ -3,11 +3,7 @@ using System.Linq;
 
 namespace lockers.test
 {
-    public class LockerFindHighVacancyStrategyBase
-    {
-    }
-
-    public class LockerFindHighVacancyStrategy: LockerFindHighVacancyStrategyBase, IFindStrategy
+    public class LockerFindHighVacancyStrategy:IFindStrategy
     {
         public Locker FindStrategy(List<Locker> lockers)
         {

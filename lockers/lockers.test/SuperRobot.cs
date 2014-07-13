@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace lockers.test
 {
@@ -8,6 +9,10 @@ namespace lockers.test
         {
         }
 
-       
+        protected override Locker FindLocker(List<Locker> lockers)
+        {
+            return lockers.OrderByDescending(l => l.GetVacancyRate()).First();
+        }
+
     }
 }

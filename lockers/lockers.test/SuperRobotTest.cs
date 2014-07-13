@@ -15,7 +15,7 @@ namespace lockers.test
         {
             Robot superRobot = new SuperRobot(new List<Locker>(){new Locker()});
             Bag bag = new Bag();
-            Ticket ticket = superRobot.Store(bag, new LockerFindHighVacancyStrategy());
+            Ticket ticket = superRobot.store(bag);
             Assert.Same(bag,superRobot.pick(ticket));
         }
 
@@ -28,7 +28,7 @@ namespace lockers.test
             Robot superRobot = new SuperRobot(new List<Locker>() {lockerWithLowerCavancyRate, lockerWithHigherCavancyRate});
 
             Bag bagToStore = new Bag();
-            Ticket ticket = superRobot.Store(bagToStore, new LockerFindHighVacancyStrategy());
+            Ticket ticket = superRobot.store(bagToStore);
             Assert.Same(bagToStore,lockerWithHigherCavancyRate.pick(ticket));
         }
     }

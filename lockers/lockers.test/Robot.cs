@@ -2,7 +2,7 @@
 
 namespace lockers.test
 {
-    public  class Robot
+    public abstract class Robot
     {
         protected List<Locker> lockers;
 
@@ -11,6 +11,13 @@ namespace lockers.test
             this.lockers = lockers;
         }
 
+        public Ticket store(Bag bag)
+        {
+            return FindLocker(lockers).store(bag);
+        }
+
+        protected abstract Locker FindLocker(List<Locker> list);
+        
 
         public Bag pick(Ticket ticket)
         {
@@ -24,17 +31,6 @@ namespace lockers.test
                 }
             } 
             return bag;
-        }
-
-        public  Ticket Store(Bag bag, IFindStrategy lockerFindStrategy)
-        {
-            return FindLocker(lockers, lockerFindStrategy).store(bag);
-        }
-
-        protected  Locker FindLocker(List<Locker> lockers, IFindStrategy lockerFindStrategy)
-        {
-            Locker lockerFound = lockerFindStrategy.FindStrategy(lockers);
-            return lockerFound;
         }
     }
 }

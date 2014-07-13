@@ -11,5 +11,13 @@ namespace lockers.test
         {
 
         }
+
+        protected override Locker FindLocker(List<Locker> lockers)
+        {
+            return lockers.OrderByDescending(l => l.emptyBox).First();
+        }
+
+
+
     }
 }
