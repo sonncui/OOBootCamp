@@ -1,0 +1,5 @@
+c:\users\administrator\documents\visual studio 2010\Projects\lockers\lockers\bin\Debug\lockers.dll
+c:\users\administrator\documents\visual studio 2010\Projects\lockers\lockers\bin\Debug\lockers.pdb
+c:\users\administrator\documents\visual studio 2010\Projects\lockers\lockers\obj\Debug\ResolveAssemblyReference.cache
+c:\users\administrator\documents\visual studio 2010\Projects\lockers\lockers\obj\Debug\lockers.dll
+c:\users\administrator\documents\visual studio 2010\Projects\lockers\lockers\obj\Debug\lockers.pdb

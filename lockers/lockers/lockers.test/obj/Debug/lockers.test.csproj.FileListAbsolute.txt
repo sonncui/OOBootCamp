@@ -1,0 +1,9 @@
+c:\users\administrator\documents\visual studio 2010\Projects\lockers\lockers.test\obj\Debug\ResolveAssemblyReference.cache
+c:\users\administrator\documents\visual studio 2010\Projects\lockers\lockers.test\bin\Debug\lockers.test.dll
+c:\users\administrator\documents\visual studio 2010\Projects\lockers\lockers.test\bin\Debug\lockers.test.pdb
+c:\users\administrator\documents\visual studio 2010\Projects\lockers\lockers.test\bin\Debug\lockers.dll
+c:\users\administrator\documents\visual studio 2010\Projects\lockers\lockers.test\bin\Debug\xunit.dll
+c:\users\administrator\documents\visual studio 2010\Projects\lockers\lockers.test\bin\Debug\lockers.pdb
+c:\users\administrator\documents\visual studio 2010\Projects\lockers\lockers.test\bin\Debug\xunit.xml
+c:\users\administrator\documents\visual studio 2010\Projects\lockers\lockers.test\obj\Debug\lockers.test.dll
+c:\users\administrator\documents\visual studio 2010\Projects\lockers\lockers.test\obj\Debug\lockers.test.pdb
