@@ -7,7 +7,7 @@ namespace lockers.test
     {
         public Locker FindStrategy(List<Locker> lockers)
         {
-            return lockers.OrderByDescending(l=>l.emptyBox).First();
+            return lockers.OrderByDescending(l => l.emptyBox).First();
         }
     }
 }

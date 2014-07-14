@@ -66,7 +66,7 @@ namespace lockers.test
         {
             List<Locker> lockers = new List<Locker>();
             lockers.Add(locker);
-            NormalRobot normalRobot = new NormalRobot(lockers);
+            Robot normalRobot = Robot.CreateNormalRobot(lockers, new LockerFindSequncialStrategy());
             Ticket ticket = normalRobot.store(bag);
             Assert.Same(bag,lockers[0].pick(ticket));   
         }
@@ -75,7 +75,7 @@ namespace lockers.test
         public void should_pick_a_bag_from_first_locker_when_robot_stored_it_into_the_multi_lockers_he_managed()
         {
             List<Locker> lockers = new List<Locker>(){locker,new Locker()};
-            Robot normalRobot = new NormalRobot(lockers);
+            Robot normalRobot = Robot.CreateNormalRobot(lockers, new LockerFindSequncialStrategy());
             Ticket ticket = normalRobot.store(bag);
             Assert.Same(bag, lockers[0].pick(ticket));
         }
@@ -89,7 +89,7 @@ namespace lockers.test
             Locker secondLocker = new Locker();
             List<Locker> lockers = new List<Locker>() { firstLocker, secondLocker };
             firstLocker.store(bag);
-            NormalRobot normalRobot = new NormalRobot(lockers);
+            Robot normalRobot = Robot.CreateNormalRobot(lockers, new LockerFindSequncialStrategy());
 
             Bag expectBag = new Bag();
             Ticket ticket = normalRobot.store(expectBag);
@@ -101,7 +101,7 @@ namespace lockers.test
         {
             Locker firstLocker = new Locker();
             List<Locker> lockers = new List<Locker>() { firstLocker };
-            NormalRobot normalRobot = new NormalRobot(lockers);
+            Robot normalRobot = Robot.CreateNormalRobot(lockers, new LockerFindSequncialStrategy());
             Ticket ticketForPick = normalRobot.store(bag);
             firstLocker.pick(ticketForPick);
 
@@ -115,7 +115,7 @@ namespace lockers.test
         {
             Locker locker = new Locker();
             List<Locker> lockers = new List<Locker>() { locker };
-            NormalRobot normalRobot = new NormalRobot(lockers);
+            Robot normalRobot = Robot.CreateNormalRobot(lockers, new LockerFindSequncialStrategy());
 
             Bag expectBag = new Bag();
             Ticket ticket = normalRobot.store(expectBag);
@@ -126,7 +126,7 @@ namespace lockers.test
         public void should_robot_pick_bag_from_lockers_when_robot_manage_multi_lockers_and_the_bag_in_lockers()
         {
             List<Locker> lockers = new List<Locker>() { new Locker(1), new Locker()};
-            NormalRobot normalRobot = new NormalRobot(lockers);
+            Robot normalRobot = Robot.CreateNormalRobot(lockers, new LockerFindSequncialStrategy());
             normalRobot.store(new Bag());
 
             Bag expectBag = new Bag();
@@ -138,7 +138,7 @@ namespace lockers.test
         public void should_robot_pick_bag_from_first_locker_when_robot_manage_multi_lockers_and_the_first_bag_from_full_to_unfilled_then_store_a_bag_to_lockers()
         {
             List<Locker> lockers = new List<Locker>() {new Locker(1), new Locker()};
-            NormalRobot normalRobot = new NormalRobot(lockers);
+            Robot normalRobot = Robot.CreateNormalRobot(lockers, new LockerFindSequncialStrategy());
             var storedTicket = normalRobot.store(new Bag());
             normalRobot.pick(storedTicket);
 
@@ -153,7 +153,7 @@ namespace lockers.test
 
             Locker locker = new Locker();
             List<Locker> lockers = new List<Locker>() { locker };
-            NormalRobot normalRobot = new NormalRobot(lockers);
+            Robot normalRobot = Robot.CreateNormalRobot(lockers, new LockerFindSequncialStrategy());
 
             Ticket ticket = normalRobot.store(new Bag());
             normalRobot.pick(ticket);

@@ -13,7 +13,7 @@ namespace lockers.test
             should_super_robot_store_a_bag_to_the_locker_he_manages_and_can_pick_the_bag_with_the_ticket_when_he_stored_the_bag
             ()
         {
-            Robot superRobot = new SuperRobot(new List<Locker>(){new Locker()});
+            Robot superRobot = Robot.CreateSuperRobot(new List<Locker>(){new Locker()}, new LockerFindHighVacancyStrategy());
             Bag bag = new Bag();
             Ticket ticket = superRobot.store(bag);
             Assert.Same(bag,superRobot.pick(ticket));
@@ -25,7 +25,7 @@ namespace lockers.test
             Locker lockerWithLowerCavancyRate = new Locker(5);
             lockerWithLowerCavancyRate.store(new Bag());
             Locker lockerWithHigherCavancyRate = new Locker(1);
-            Robot superRobot = new SuperRobot(new List<Locker>() {lockerWithLowerCavancyRate, lockerWithHigherCavancyRate});
+            Robot superRobot = Robot.CreateSuperRobot(new List<Locker>() {lockerWithLowerCavancyRate, lockerWithHigherCavancyRate}, new LockerFindHighVacancyStrategy());
 
             Bag bagToStore = new Bag();
             Ticket ticket = superRobot.store(bagToStore);

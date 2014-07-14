@@ -7,7 +7,7 @@ namespace lockers.test
     {
         public Locker FindStrategy(List<Locker> lockers)
         {
-            return lockers.OrderByDescending(l=>l.GetVacancyRate()).First();
+            return lockers.OrderByDescending(l => l.GetVacancyRate()).First();
         }
     }
 }

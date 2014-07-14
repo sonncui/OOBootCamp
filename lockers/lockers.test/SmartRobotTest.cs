@@ -17,7 +17,7 @@ namespace lockers.test
         [Fact]
         public void should_smart_robot_store_a_bag_into_the_only_locker_it_manages_and_return_a_ticket_can_pick_the_bag_with_the_ticket()
         {
-            SmartRobot smartRobot = new SmartRobot(new List<Locker>(){locker});
+            Robot smartRobot = Robot.CreateSmartRobot(new List<Locker>(){locker}, new LockerFindMaxEmptyStrategy());
             Ticket ticket = smartRobot.store(bag);
             Assert.Same(bag,smartRobot.pick(ticket));
         }
@@ -29,7 +29,7 @@ namespace lockers.test
         {
             Locker lockerWithOneEmptyBox = new Locker(1);
             Locker lockerWithTwoEmptyBox = new Locker(2);
-            SmartRobot smartRobot = new SmartRobot(new List<Locker>() {lockerWithOneEmptyBox, lockerWithTwoEmptyBox});
+            Robot smartRobot = Robot.CreateSmartRobot(new List<Locker>() {lockerWithOneEmptyBox, lockerWithTwoEmptyBox}, new LockerFindMaxEmptyStrategy());
             Ticket ticket = smartRobot.store(bag);
             Assert.Same(bag,lockerWithTwoEmptyBox.pick(ticket));
         }
@@ -40,7 +40,7 @@ namespace lockers.test
             ()
         {
             List<Locker> lockers = new List<Locker>() {new Locker(2), new Locker(2)};
-            SmartRobot smartRobot = new SmartRobot(lockers);
+            Robot smartRobot = Robot.CreateSmartRobot(lockers, new LockerFindMaxEmptyStrategy());
             Ticket ticket = smartRobot.store(bag);
             Assert.Same(bag, lockers[0].pick(ticket));
         }   

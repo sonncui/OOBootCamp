@@ -49,11 +49,8 @@
     <Compile Include="LockerFindHighVacancyStrategy.cs" />
     <Compile Include="LockerFindMaxEmptyStrategy.cs" />
     <Compile Include="LockerFindSequncialStrategy.cs" />
-    <Compile Include="NormalRobot.cs" />
     <Compile Include="Robot.cs" />
-    <Compile Include="SmartRobot.cs" />
     <Compile Include="SmartRobotTest.cs" />
-    <Compile Include="SuperRobot.cs" />
     <Compile Include="SuperRobotTest.cs" />
     <Compile Include="Test.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
