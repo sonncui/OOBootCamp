@@ -58,5 +58,10 @@ namespace lockers.test
         {
             return EmptyBox/(double)Capacity;
         }
+
+        public string Print()
+        {
+            return string.Format("Locker:{0}", EmptyBox);
+        }
     }
 }

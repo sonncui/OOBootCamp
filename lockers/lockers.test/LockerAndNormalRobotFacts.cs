@@ -72,6 +72,15 @@ namespace lockers.test
         }
 
         [Fact]
+        public void should_print_locker_infor()
+        {
+            Locker locker = new Locker(3);
+            locker.Store(new Bag());
+            string expectPrint = string.Format("Locker:2");
+            Assert.Equal(expectPrint,locker.Print());
+        }
+
+        [Fact]
         public void should_pick_a_bag_from_first_locker_when_robot_stored_it_into_the_multi_lockers_he_managed()
         {
             List<Locker> lockers = new List<Locker>(){locker,new Locker()};
@@ -159,6 +168,5 @@ namespace lockers.test
             normalRobot.Pick(ticket);
             Assert.Null(normalRobot.Pick(ticket));
         }
-
     }
 }

@@ -50,9 +50,8 @@
     <Compile Include="LockerFindHighVacancyStrategy.cs" />
     <Compile Include="LockerFindMaxEmptyStrategy.cs" />
     <Compile Include="LockerFindSequncialStrategy.cs" />
-    <Compile Include="ManageFact.cs" />
-    <Compile Include="Manager.cs" />
     <Compile Include="ManagerFacts.cs" />
+    <Compile Include="Manager.cs" />
     <Compile Include="Robot.cs" />
     <Compile Include="SmartRobotFacts.cs" />
     <Compile Include="SuperRobotFacts.cs" />
