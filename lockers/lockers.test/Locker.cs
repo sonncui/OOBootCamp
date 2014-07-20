@@ -2,21 +2,21 @@
 
 namespace lockers.test
 {
-    public class Locker
+    public class Locker:IEntity
     {
         public int Capacity { get; set; }
-        public int emptyBox { get; private set; }
+        public int EmptyBox { get; private set; }
         private Dictionary<Ticket, Bag> bagTicket = new Dictionary<Ticket, Bag>();
 
-        public bool isFull()
+        public bool IsFull()
         {
-            return emptyBox == 0;
+            return EmptyBox == 0;
         }
 
         public Locker(int capacity)
         {
             Capacity = capacity;
-            emptyBox = capacity;
+            EmptyBox = capacity;
             
            
         }
@@ -24,22 +24,22 @@ namespace lockers.test
         public Locker()
         {
             Capacity = 100;
-            emptyBox = Capacity;
+            EmptyBox = Capacity;
         }
 
-        public Ticket store(Bag bag)
+        public Ticket Store(Bag bag)
         {
-            if (emptyBox == 0)
+            if (EmptyBox == 0)
             {
                 return null;
             }
             var ticket = new Ticket();
             bagTicket.Add(ticket,bag);
-            emptyBox--;
+            EmptyBox--;
             return ticket;
         }
 
-        public Bag pick(Ticket ticket)
+        public Bag Pick(Ticket ticket)
         {
             Bag bag = null;
             if (ticket.ticketValid == true && bagTicket.ContainsKey(ticket))
@@ -47,7 +47,7 @@ namespace lockers.test
                 bag = bagTicket[ticket];
                 bagTicket.Remove(ticket);
                 ticket.ticketValid = false;
-                emptyBox++;
+                EmptyBox++;
             }
             
             return bag;
@@ -56,7 +56,7 @@ namespace lockers.test
 
         public double GetVacancyRate()
         {
-            return emptyBox/(double)Capacity;
+            return EmptyBox/(double)Capacity;
         }
     }
 }

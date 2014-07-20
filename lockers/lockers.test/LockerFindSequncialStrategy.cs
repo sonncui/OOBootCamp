@@ -6,7 +6,7 @@ namespace lockers.test
     {
         public Locker FindStrategy(List<Locker> lockers)
         {
-            return lockers.Find(l=>(l.emptyBox!=0));
+            return lockers.Find(l=>(l.EmptyBox!=0));
         }
     }
 }

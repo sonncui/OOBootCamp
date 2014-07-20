@@ -2,7 +2,7 @@
 
 namespace lockers.test
 {
-    public class Robot
+    public class Robot: IEntity
     {
         protected List<Locker> lockers;
         protected IFindStrategy lockerFindStrategy;
@@ -13,17 +13,22 @@ namespace lockers.test
             lockerFindStrategy = findStrategy;
         }
 
-        public Ticket store(Bag bag)
+        public bool IsFull()
         {
-            return FindLocker(lockers).store(bag);
+            return !lockers.Exists(locker => (locker.IsFull() == false));
         }
 
-        public Bag pick(Ticket ticket)
+        public Ticket Store(Bag bag)
+        {
+            return FindLocker(lockers).Store(bag);
+        }
+
+        public Bag Pick(Ticket ticket)
         {
             Bag bag = null;
             foreach (var locker in lockers)
             {
-                bag = locker.pick(ticket);
+                bag = locker.Pick(ticket);
                 if (bag!=null)
                 {
                     break;

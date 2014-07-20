@@ -44,15 +44,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bag.cs" />
+    <Compile Include="IEntity.cs" />
     <Compile Include="IFindStrategy.cs" />
     <Compile Include="Locker.cs" />
     <Compile Include="LockerFindHighVacancyStrategy.cs" />
     <Compile Include="LockerFindMaxEmptyStrategy.cs" />
     <Compile Include="LockerFindSequncialStrategy.cs" />
+    <Compile Include="ManageFact.cs" />
+    <Compile Include="Manager.cs" />
+    <Compile Include="ManagerFacts.cs" />
     <Compile Include="Robot.cs" />
-    <Compile Include="SmartRobotTest.cs" />
-    <Compile Include="SuperRobotTest.cs" />
-    <Compile Include="Test.cs" />
+    <Compile Include="SmartRobotFacts.cs" />
+    <Compile Include="SuperRobotFacts.cs" />
+    <Compile Include="LockerAndNormalRobotFacts.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Ticket.cs" />
   </ItemGroup>

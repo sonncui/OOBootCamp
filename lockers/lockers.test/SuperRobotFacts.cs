@@ -6,7 +6,7 @@ using Xunit;
 
 namespace lockers.test
 {
-    public class SuperRobotTest
+    public class SuperRobotFacts
     {
         [Fact]
         public void
@@ -15,21 +15,25 @@ namespace lockers.test
         {
             Robot superRobot = Robot.CreateSuperRobot(new List<Locker>(){new Locker()}, new LockerFindHighVacancyStrategy());
             Bag bag = new Bag();
-            Ticket ticket = superRobot.store(bag);
-            Assert.Same(bag,superRobot.pick(ticket));
+            Ticket ticket = superRobot.Store(bag);
+            Assert.Same(bag,superRobot.Pick(ticket));
         }
 
         [Fact]
         public void should_super_robot_store_the_bag_to_the_locker_which_has_the_highest_vacancy_rate()
         {
             Locker lockerWithLowerCavancyRate = new Locker(5);
-            lockerWithLowerCavancyRate.store(new Bag());
+            lockerWithLowerCavancyRate.Store(new Bag());
             Locker lockerWithHigherCavancyRate = new Locker(1);
             Robot superRobot = Robot.CreateSuperRobot(new List<Locker>() {lockerWithLowerCavancyRate, lockerWithHigherCavancyRate}, new LockerFindHighVacancyStrategy());
 
             Bag bagToStore = new Bag();
-            Ticket ticket = superRobot.store(bagToStore);
-            Assert.Same(bagToStore,lockerWithHigherCavancyRate.pick(ticket));
+            Ticket ticket = superRobot.Store(bagToStore);
+            Assert.Same(bagToStore,lockerWithHigherCavancyRate.Pick(ticket));
         }
     }
+}
+
+namespace lockers.test
+{
 }

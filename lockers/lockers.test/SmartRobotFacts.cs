@@ -3,12 +3,12 @@ using Xunit;
 
 namespace lockers.test
 {
-    public class SmartRobotTest
+    public class SmartRobotFacts
     {
         private Bag bag;
         private Locker locker;
 
-        public SmartRobotTest()
+        public SmartRobotFacts()
         {
             bag = new Bag();
             locker = new Locker(1);
@@ -18,8 +18,8 @@ namespace lockers.test
         public void should_smart_robot_store_a_bag_into_the_only_locker_it_manages_and_return_a_ticket_can_pick_the_bag_with_the_ticket()
         {
             Robot smartRobot = Robot.CreateSmartRobot(new List<Locker>(){locker}, new LockerFindMaxEmptyStrategy());
-            Ticket ticket = smartRobot.store(bag);
-            Assert.Same(bag,smartRobot.pick(ticket));
+            Ticket ticket = smartRobot.Store(bag);
+            Assert.Same(bag,smartRobot.Pick(ticket));
         }
 
         [Fact]
@@ -30,8 +30,8 @@ namespace lockers.test
             Locker lockerWithOneEmptyBox = new Locker(1);
             Locker lockerWithTwoEmptyBox = new Locker(2);
             Robot smartRobot = Robot.CreateSmartRobot(new List<Locker>() {lockerWithOneEmptyBox, lockerWithTwoEmptyBox}, new LockerFindMaxEmptyStrategy());
-            Ticket ticket = smartRobot.store(bag);
-            Assert.Same(bag,lockerWithTwoEmptyBox.pick(ticket));
+            Ticket ticket = smartRobot.Store(bag);
+            Assert.Same(bag,lockerWithTwoEmptyBox.Pick(ticket));
         }
 
         [Fact]
@@ -41,8 +41,8 @@ namespace lockers.test
         {
             List<Locker> lockers = new List<Locker>() {new Locker(2), new Locker(2)};
             Robot smartRobot = Robot.CreateSmartRobot(lockers, new LockerFindMaxEmptyStrategy());
-            Ticket ticket = smartRobot.store(bag);
-            Assert.Same(bag, lockers[0].pick(ticket));
+            Ticket ticket = smartRobot.Store(bag);
+            Assert.Same(bag, lockers[0].Pick(ticket));
         }   
     }
 }
